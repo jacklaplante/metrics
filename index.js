@@ -16,6 +16,15 @@ function fetchData() {
           row.insertCell(4).innerText = playerIp
           // fetchLocation(playerIp, row)
         }
+        if (item.country) row.insertCell(5).innerText = item.country.S
+        if (item.latitude && item.longitude) {
+          let cell = row.insertCell(6)
+          let latLon = item.latitude.S + "," + item.longitude.S
+          let gMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + latLon
+          let link = latLon.link(gMapsUrl);
+          cell.innerHTML = link;
+          console.log()
+        }
       })
     })
   })
