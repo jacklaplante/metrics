@@ -1,5 +1,8 @@
 function fetchData() {
-  fetch('https://rvcv9mh5l1.execute-api.us-east-1.amazonaws.com/test/metrics').then(response => {
+  fetch('https://rvcv9mh5l1.execute-api.us-east-1.amazonaws.com/test/metrics',
+  {headers: {
+    serverid: 'us-east-1'
+  }}).then(response => {
     response.json().then(json => {
       let body = document.getElementById("metrics-table").getElementsByTagName('tbody')[0]
       json.Items.forEach(item => {
