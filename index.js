@@ -1,7 +1,8 @@
 function fetchData() {
+  let serverId = document.getElementById("serverId").value
   fetch('https://rvcv9mh5l1.execute-api.us-east-1.amazonaws.com/test/metrics',
   {headers: {
-    serverid: 'us-east-1'
+    serverid: serverId
   }}).then(response => {
     response.json().then(json => {
       let body = document.getElementById("metrics-table").getElementsByTagName('tbody')[0]
